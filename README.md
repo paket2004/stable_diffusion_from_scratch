@@ -10,3 +10,5 @@ v1-5-pruned-emaonly.ckpt from https://huggingface.co/stable-diffusion-v1-5/stabl
 From this project I gain a lot of knowledge: What is DDPM, what are the parts of Stable diffusion (CLIP, U-Net, autoencoders witl latent space, math under the DDPM, training and inference process).
 
 My future work related to this work is implement telegram bor with API for that code.
+
+Status: FastAPI endpoint is implemented, bot and docker not yet
