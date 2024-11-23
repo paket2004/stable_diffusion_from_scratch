@@ -1,0 +1,8 @@
+venv
+model_setup
+__pycache__
+api
+results
+A3_alsu.ipynb
+dog.jpg
+lora.py
