@@ -53,11 +53,14 @@ class VAE_Encoder(nn.Sequential):
                 x = F.pad(x, (0, 1, 0, 1))
             
             x = module(x)
+        # split mean and variance
         mean, log_variance = torch.chunk(x, 2, dim=1)
+        # scale variance
         log_variance = torch.clamp(log_variance, -30, 20)
+        # take simple variance
         variance = log_variance.exp()
         stdev = variance.sqrt()
-        
+        # transform N(0,1) to any other normal distribution
         x = mean + stdev * noise
         
         # Scale by a constant
