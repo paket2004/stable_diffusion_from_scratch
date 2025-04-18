@@ -86,7 +86,8 @@ def generate(
             time_embedding = get_time_embedding(timestep).to(device)
             # (Batch_Size, 4, Latents_Height, Latents_Width)
             model_input = latents
-            
+
+            # batch size 4, lat_h, lat_w -> 2 * batch  size (1 with prompt &  without
             model_input = model_input.repeat(2, 1, 1, 1)
 
             # model_output is the predicted noise
