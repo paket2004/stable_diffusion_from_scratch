@@ -96,6 +96,7 @@ def generate(
             output_cond, output_uncond = model_output.chunk(2)
             model_output = cfg_scale * (output_cond - output_uncond) + output_uncond
             # (Batch_Size, 4, Latents_Height, Latents_Width) -> (Batch_Size, 4, Latents_Height, Latents_Width)
+            # removed noise from the image
             latents = sampler.step(timestep, latents, model_output)
         to_idle(diffusion)
 
