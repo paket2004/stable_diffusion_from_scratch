@@ -13,16 +13,18 @@ class CLIPLayer(nn.Module):
     def forward(self, x):
         # (Batch_Size, Seq_Len, Dim)
         residue = x
-        
+
+        # self attention with casual mask
         x = self.layernorm_1(x)
         x = self.attention(x, causal_mask=True)
     
         x += residue
 
+        ## feedforward
         residue = x
         x = self.layernorm_2(x)
         x = self.linear_1(x)
-        x = x * torch.sigmoid(1.702 * x)
+        x = x * torch.sigmoid(1.702 * x) # quickgelu, just activation function from paper
         x = self.linear_2(x)
         x += residue
 
