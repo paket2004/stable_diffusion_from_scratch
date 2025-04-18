@@ -15,7 +15,6 @@ HEIGHT = 512
 seed = 42
 LATENTS_WIDTH = WIDTH // 8
 LATENTS_HEIGHT = HEIGHT // 8
-print("zhopa slona")
 from transformers import CLIPTokenizer
 DEVICE = "cpu"
 merges_file = os.path.join("model_setup", "tokenizer_merges.txt")
